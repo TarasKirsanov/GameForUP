@@ -1,0 +1,15 @@
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.Main.resources
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.Properties.Resources.resources
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.csproj.GenerateResource.cache
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Rabbit__Game\bin\Debug\Rabbit__Game.exe.config
+C:\Users\User\source\repos\Rabbit__Game\bin\Debug\Rabbit__Game.exe
+C:\Users\User\source\repos\Rabbit__Game\bin\Debug\Rabbit__Game.pdb
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.exe
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.pdb
+C:\Users\User\source\repos\Rabbit__Game\bin\Debug\Guna.UI2.dll
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.Settings.resources
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.csproj.CopyComplete
+C:\Users\User\source\repos\Rabbit__Game\bin\Debug\Guna.UI.dll
+C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.StartForm.resources
