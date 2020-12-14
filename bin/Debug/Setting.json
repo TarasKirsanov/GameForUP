@@ -1,0 +1,17 @@
+{
+  "ImagePathPlayer": "C:\\Users\\User\\Desktop\\hat.jpg",
+  "ImagePathWolf": "C:\\Users\\User\\Desktop\\hat1.jpg",
+  "ImagePathPresent": "C:\\Users\\User\\Downloads\\Present.png",
+  "ImagePathBomb": "C:\\Users\\User\\Downloads\\bomb.png",
+  "MapForFirstLevel": "map6.txt",
+  "MapForSecondLevel": "map8.txt",
+  "MapForThirdLevel": "map10.txt",
+  "LevelOfHardOnFirstLevel": "Light",
+  "LevelOfHardOnSecondLevel": "Middle",
+  "LevelOfHardOnThirdLevel": "Hard",
+  "CountOfLives": 10,
+  "WolfInterval": 1,
+  "DamageOfWolf": 1,
+  "DamageOfBomb": 2,
+  "HandicapTime": 2
+}

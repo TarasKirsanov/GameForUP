@@ -20,5 +20,5 @@ namespace Rabbit__Game
             Application.Run(new StartForm());
         }
     }
-    public delegate void MyDelegate(Image image);
+    public delegate void MyDelegate(Configarithion conf);
 }

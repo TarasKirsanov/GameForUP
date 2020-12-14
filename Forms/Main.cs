@@ -21,17 +21,18 @@ namespace Rabbit__Game
         List<PictureBox> walls = new List<PictureBox>();
         int StepX = 0, StepY = 0;
         int StepEnemyX = 0, StepEnemyY = 0;
+        Configarithion conf;
 
         int WhatTypeOfEnemyMove;
 
-        public Main(int RowCount, int ColumnCount, string path)
+        public Main(int RowCount, int ColumnCount, string path, string complexity)
         {
             InitializeComponent();
-
+            conf = JSONWorker.GetList();
             //grid = new Grid(this.Size.Height, this.Size.Width, 10, 10, "map.txt");
             grid = new Grid(720, 720, RowCount, ColumnCount, path);
-            player = new Rabbit(0, 0, 3, "hat.jpg");
-            wolf = new Wolf(RowCount - 1, ColumnCount - 1, "hat1.jpg");
+            player = new Rabbit(0, 0, conf.CountOfLives,conf.ImagePathPlayer);
+            wolf = new Wolf(RowCount - 1, ColumnCount - 1, conf.ImagePathWolf);
             playerImage = new PictureBox();
             WolfImage = new PictureBox();
 
@@ -74,16 +75,19 @@ namespace Rabbit__Game
                     }
                 }
             }
-
-            //StupitMoveEnemy();
-            WaveMove();
+            if(complexity == "Light")
+                StupitMoveEnemy();
+            if (complexity == "Middle")
+                StupitMoveEnemy1();
+            if(complexity == "Hard")
+                WaveMove();
         }
 
         private void StupitMoveEnemy()
         {
             WhatTypeOfEnemyMove = 1;
             TimerForFirstMoveEnemy = new Timer();
-            TimerForFirstMoveEnemy.Interval = 1001;
+            TimerForFirstMoveEnemy.Interval = conf.WolfInterval*1000;
             TimerForFirstMoveEnemy.Tick += StepEveryOneSecond;
 
             TimerStepEnemy = new Timer();
@@ -97,7 +101,7 @@ namespace Rabbit__Game
         {
             WhatTypeOfEnemyMove = 2;
             TimerForSecondMoveEnemy = new Timer();
-            TimerForSecondMoveEnemy.Interval = 1001;
+            TimerForSecondMoveEnemy.Interval = conf.WolfInterval * 1000;
             TimerForSecondMoveEnemy.Tick += StepEveryOneSecond1;
 
             TimerStepEnemy = new Timer();
@@ -110,7 +114,7 @@ namespace Rabbit__Game
         {
             WhatTypeOfEnemyMove = 2;
             TimerForSecondMoveEnemy = new Timer();
-            TimerForSecondMoveEnemy.Interval = 1001;
+            TimerForSecondMoveEnemy.Interval = conf.WolfInterval * 1000;
             TimerForSecondMoveEnemy.Tick += WaveAlgorithmTick;
 
             TimerStepEnemy = new Timer();
@@ -163,10 +167,10 @@ namespace Rabbit__Game
                           MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     if (result.ToString() == "Yes")
                     {
-                        grid = new Grid(720, 720, 8, 8, "map8.txt");
+                        grid = new Grid(720, 720, 8, 8, conf.MapForSecondLevel);
                         player = new Rabbit(0, 0, 3, "hat.jpg");
                         wolf = new Wolf(7, 7, "hat1.jpg");
-                        Main f = new Main(8, 8, "map8.txt");
+                        Main f = new Main(8, 8, "map8.txt",conf.LevelOfHardOnSecondLevel);
                         
                         f.Show();
                         this.Close();
@@ -187,10 +191,10 @@ namespace Rabbit__Game
                           MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     if (result.ToString() == "Yes")
                     {
-                        grid = new Grid(720, 720, 10, 10, "map10.txt");
-                        player = new Rabbit(0, 0, 3, "hat.jpg");
-                        wolf = new Wolf(9, 9, "hat1.jpg");
-                        Main f = new Main(10, 10, "map10.txt");
+                        grid = new Grid(720, 720, 10, 10, conf.MapForThirdLevel);
+                        player = new Rabbit(0, 0, conf.CountOfLives, conf.ImagePathPlayer);
+                        wolf = new Wolf(9, 9, conf.ImagePathWolf);
+                        Main f = new Main(10, 10, conf.MapForThirdLevel,conf.LevelOfHardOnThirdLevel);
 
                         f.Show();
                         this.Close();
@@ -211,10 +215,10 @@ namespace Rabbit__Game
                           MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     if (result.ToString() == "Yes")
                     {
-                        grid = new Grid(720, 720, 6, 6, "map6.txt");
-                        player = new Rabbit(0, 0, 3, "hat.jpg");
-                        wolf = new Wolf(5, 5, "hat1.jpg");
-                        Main f = new Main(6, 6, "map6.txt");
+                        grid = new Grid(720, 720, 6, 6, conf.MapForFirstLevel);
+                        player = new Rabbit(0, 0, conf.CountOfLives, conf.ImagePathPlayer);
+                        wolf = new Wolf(5, 5, conf.ImagePathWolf);
+                        Main f = new Main(6, 6, conf.MapForThirdLevel, conf.LevelOfHardOnFirstLevel);
                         f.Show();
                         this.Close();
                     }
@@ -230,22 +234,18 @@ namespace Rabbit__Game
         }
 
         bool GoWall, Choosing = true;
-
+        public void ChangesInGame(Configarithion configuration)
+        {
+            conf = configuration;
+            playerImage.Image = Image.FromFile(conf.ImagePathPlayer);
+            WolfImage.Image = Image.FromFile(conf.ImagePathWolf);
+        }
         private void gunaCircleButton2_Click(object sender, EventArgs e)
         {
-            var SettingForm = new Settings(new MyDelegate(Chan), new MyDelegate(Chan1),playerImage.Image , WolfImage.Image);
+            var SettingForm = new Settings("Main", new MyDelegate(ChangesInGame));
             SettingForm.Show();
         }
 
-        void Chan(Image image)
-        {
-            playerImage.Image = image;
-        }
-
-        void Chan1(Image image)
-        {
-            WolfImage.Image = image;
-        }
 
         private void gunaCircleButton2_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -359,7 +359,7 @@ namespace Rabbit__Game
         public void QuolityOfLifesCheck()
         {
             
-                player.QuantityOfLife -= 1;
+                player.QuantityOfLife -= conf.DamageOfWolf;
                 if (player.QuantityOfLife == 0)
                 {
                     DialogResult result = MessageBox.Show(
@@ -369,7 +369,7 @@ namespace Rabbit__Game
                      MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     if (result.ToString() == "Yes")
                     {
-                        Main f = new Main(6, 6, "map6.txt");
+                        Main f = new Main(6, 6, conf.MapForFirstLevel,conf.LevelOfHardOnFirstLevel);
                         f.Show();
                         this.Close();
                     }

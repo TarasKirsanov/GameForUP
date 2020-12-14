@@ -13,3 +13,5 @@ C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.Settings.resource
 C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.csproj.CopyComplete
 C:\Users\User\source\repos\Rabbit__Game\bin\Debug\Guna.UI.dll
 C:\Users\User\source\repos\Rabbit__Game\obj\Debug\Rabbit__Game.StartForm.resources
+C:\Users\User\source\repos\Rabbit__Game\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\source\repos\Rabbit__Game\bin\Debug\Newtonsoft.Json.xml

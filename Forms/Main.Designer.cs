@@ -31,6 +31,8 @@ namespace Rabbit__Game
         {
             this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaCircleButton2
@@ -45,7 +47,7 @@ namespace Rabbit__Game
             this.gunaCircleButton2.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton2.Image = global::Rabbit__Game.Properties.Resources.gear;
             this.gunaCircleButton2.ImageSize = new System.Drawing.Size(23, 23);
-            this.gunaCircleButton2.Location = new System.Drawing.Point(751, 54);
+            this.gunaCircleButton2.Location = new System.Drawing.Point(731, 54);
             this.gunaCircleButton2.Name = "gunaCircleButton2";
             this.gunaCircleButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaCircleButton2.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -69,7 +71,7 @@ namespace Rabbit__Game
             this.gunaCircleButton1.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton1.Image = global::Rabbit__Game.Properties.Resources.cross_sign__1_;
             this.gunaCircleButton1.ImageSize = new System.Drawing.Size(23, 23);
-            this.gunaCircleButton1.Location = new System.Drawing.Point(751, 8);
+            this.gunaCircleButton1.Location = new System.Drawing.Point(9, 8);
             this.gunaCircleButton1.Name = "gunaCircleButton1";
             this.gunaCircleButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaCircleButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -81,19 +83,30 @@ namespace Rabbit__Game
             this.gunaCircleButton1.Click += new System.EventHandler(this.gunaCircleButton1_Click);
             this.gunaCircleButton1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.gunaCircleButton2_PreviewKeyDown);
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.gunaCircleButton1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(720, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(60, 720);
+            this.panel1.TabIndex = 2;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 720);
+            this.ClientSize = new System.Drawing.Size(780, 720);
             this.Controls.Add(this.gunaCircleButton2);
-            this.Controls.Add(this.gunaCircleButton1);
+            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "Main";
             this.Text = "Form1";
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.gunaCircleButton2_PreviewKeyDown);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -102,6 +115,7 @@ namespace Rabbit__Game
 
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton1;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

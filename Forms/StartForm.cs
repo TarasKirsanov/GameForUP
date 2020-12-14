@@ -25,14 +25,22 @@ namespace Rabbit__Game
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Main f = new Main(6,6,"map6.txt");
+            Configarithion conf = JSONWorker.GetList();
+            Main f = new Main(6,6,conf.MapForFirstLevel,conf.LevelOfHardOnFirstLevel);
             f.Show();
             this.Hide();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
 
+        private void SettingButton_Click(object sender, EventArgs e)
+        {
+            var f = new Settings("Start");
+            f.Show();
+            this.Hide();
         }
     }
 }

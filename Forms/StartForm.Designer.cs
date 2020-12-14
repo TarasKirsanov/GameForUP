@@ -70,6 +70,7 @@ namespace Rabbit__Game
             this.SettingButton.Size = new System.Drawing.Size(232, 69);
             this.SettingButton.TabIndex = 1;
             this.SettingButton.Text = "Settings";
+            this.SettingButton.Click += new System.EventHandler(this.SettingButton_Click);
             // 
             // ExitButton
             // 
