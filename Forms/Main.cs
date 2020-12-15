@@ -234,9 +234,9 @@ namespace Rabbit__Game
                     if (result.ToString() == "Yes")
                     {
                         grid = new Grid(720, 720, 8, 8, conf.MapForSecondLevel);
-                        player = new Rabbit(0, 0, 3, "hat.jpg");
-                        wolf = new Wolf(7, 7, "hat1.jpg");
-                        Main f = new Main(8, 8, "map8.txt",conf.LevelOfHardOnSecondLevel);
+                        player = new Rabbit(0, 0, 3, conf.ImagePathPlayer);
+                        wolf = new Wolf(7, 7, conf.ImagePathWolf);
+                        Main f = new Main(8, 8, conf.MapForSecondLevel,conf.LevelOfHardOnSecondLevel);
                         
                         f.Show();
                         this.Close();

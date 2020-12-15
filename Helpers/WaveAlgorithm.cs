@@ -22,6 +22,52 @@ namespace Rabbit__Game
 
             }
         }
+        public static bool IsPassable(int startX, int startY, int targetX, int targetY, Grid grid)
+        {
+            bool add = true;
+            int[,] cMap = new int[grid.countOfColumns, grid.countOfRows];
+            int x, y, step = 0;
+            for (x = 0; x < grid.countOfRows; x++)
+                for (y = 0; y < grid.countOfColumns; y++)
+                {
+                    if (!grid.IsFree(x, y))
+                        cMap[x, y] = -2;//индикатор стены
+                    else
+                        cMap[x, y] = -1;//индикатор еще не ступали сюда
+                }
+            cMap[startX, startY] = 0;//Начинаем с финиша
+            while (add)
+            {
+                add = false;
+                for (x = 0; x < grid.countOfRows; x++)
+                    for (y = 0; y < grid.countOfColumns; y++)
+                    {
+                        if (cMap[x, y] == step)
+                        {
+                            //Ставим значение шага+1 в соседние ячейки (если они проходимы)
+                            if (grid.IsFree(x - 1, y) && cMap[x - 1, y] == -1)
+                                cMap[x - 1, y] = step + 1;
+                            if (grid.IsFree(x, y - 1) && cMap[x, y - 1] == -1)
+                                cMap[x, y - 1] = step + 1;
+                            if (grid.IsFree(x + 1, y) && cMap[x + 1, y] == -1)
+                                cMap[x + 1, y] = step + 1;
+                            if (grid.IsFree(x, y + 1) && cMap[x, y + 1] == -1)
+                                cMap[x, y + 1] = step + 1;
+                        }
+                    }
+                add = true;
+                step++;
+                if (cMap[targetX, targetY] != -1 && cMap[targetX, targetY] != -2)
+                {
+                    return true;
+                }
+                if (step > grid.countOfRows * grid.countOfColumns)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
         public static int NextStep(int startX, int startY, int targetX, int targetY, Grid grid)
         {
             bool add = true;

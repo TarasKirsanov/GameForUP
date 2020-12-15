@@ -93,11 +93,31 @@ namespace Rabbit__Game
             configarithion.LevelOfHardOnSecondLevel = guna2ComboBox2.Text;
             configarithion.LevelOfHardOnThirdLevel = guna2ComboBox3.Text;
             configarithion.WolfInterval = int.Parse(gunaTextBox8.Text);
-            JSONWorker.WriteFile(configarithion);
-            MessageBox.Show("Data are update!");
-            if(Name == "Main")
+            bool isPassable = true;
+            Grid tmp_grid = new Grid(720, 720, 6, 6, configarithion.MapForFirstLevel);
+            if (!WaveAlgorithm.IsPassable(0,0,5,5, new Grid(720, 720, 6, 6, configarithion.MapForFirstLevel)))
             {
-                Delegate(configarithion);
+                isPassable = false;
+                MessageBox.Show($"Карта с названием {configarithion.MapForFirstLevel}");
+            }
+            if (!WaveAlgorithm.IsPassable(0,0,7,7, new Grid(720, 720, 8, 8, configarithion.MapForSecondLevel)))
+            {
+                isPassable = false;
+                MessageBox.Show($"Карта с названием {configarithion.MapForSecondLevel}");
+            }
+            if (!WaveAlgorithm.IsPassable(0,0,9,9, new Grid(720, 720, 10, 10, configarithion.MapForThirdLevel)))
+            {
+                isPassable = false;
+                MessageBox.Show($"Карта с названием {configarithion.MapForThirdLevel}");
+            }
+            if (isPassable)
+            {
+                JSONWorker.WriteFile(configarithion);
+                MessageBox.Show("Data are update!");
+                if (Name == "Main")
+                {
+                    Delegate(configarithion);
+                }
             }
         }
 
