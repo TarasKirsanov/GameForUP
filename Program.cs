@@ -21,4 +21,5 @@ namespace Rabbit__Game
         }
     }
     public delegate void MyDelegate(Configarithion conf);
+    public delegate void MyDelegate1();
 }

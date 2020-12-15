@@ -9,6 +9,19 @@ namespace Rabbit__Game
     abstract class AbstractPresent : AbstarctObject
     {
         public string ImagePathBOOM { get; set; }
+        public AbstractPresent(Grid grid, Position rabbitPosition, Position wolfPosition, string imagePath, string imagePathBOOM)
+        {
+            Random rand = new Random();
+            int startX = rand.Next(grid.countOfColumns), startY = rand.Next(grid.countOfRows);
+            while (!grid.IsFree(startX, startY) || rabbitPosition.X == startX || wolfPosition.X == startX || rabbitPosition.Y == startY || wolfPosition.Y == startY)
+            {
+                startX = rand.Next(grid.countOfColumns);
+                startY = rand.Next(grid.countOfRows);
+            }
+            position = new Position(startX, startY);
+            ImagePath = imagePath;
+            ImagePathBOOM = imagePathBOOM;
+        }
         public AbstractPresent(Grid grid, Position rabbitPosition, Position wolfPosition)
         {
             Random rand = new Random();

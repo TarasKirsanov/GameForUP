@@ -1,7 +1,7 @@
 {
   "ImagePathPlayer": "C:\\Users\\User\\Desktop\\hat.jpg",
   "ImagePathWolf": "C:\\Users\\User\\Desktop\\hat1.jpg",
-  "ImagePathPresent": "C:\\Users\\User\\Downloads\\Present.png",
+  "ImagePathPresent": "C:\\Users\\User\\Downloads\\4-42231_gift-by-mi-baumgarten-gift-box-clipart-png.png",
   "ImagePathBomb": "C:\\Users\\User\\Downloads\\bomb.png",
   "MapForFirstLevel": "map6.txt",
   "MapForSecondLevel": "map8.txt",
@@ -13,5 +13,5 @@
   "WolfInterval": 1,
   "DamageOfWolf": 1,
   "DamageOfBomb": 2,
-  "HandicapTime": 2
+  "HandicapTime": 3
 }

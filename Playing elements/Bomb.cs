@@ -9,7 +9,7 @@ namespace Rabbit__Game
     class Bomb : AbstractPresent
     {
 
-        public Bomb(Grid grid, Position rabbitPosition, Position wolfPosition) : base(grid, rabbitPosition, wolfPosition)
+        public Bomb(Grid grid, Position rabbitPosition, Position wolfPosition, string imagePath, string imagePathBOOM) : base(grid, rabbitPosition, wolfPosition, imagePath, imagePathBOOM)
         {
 
         }

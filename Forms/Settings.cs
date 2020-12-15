@@ -15,7 +15,8 @@ namespace Rabbit__Game
     {
         string Name;
         MyDelegate Delegate;
-        public Settings(string NameOfForm, MyDelegate sender = null)
+        MyDelegate1 Delegate1;
+        public Settings(string NameOfForm, MyDelegate sender = null, MyDelegate1 sender1 = null)
         {
             Configarithion conf = new Configarithion();
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace Rabbit__Game
             guna2ComboBox3.Text = conf.LevelOfHardOnThirdLevel;
             Name = NameOfForm;
             Delegate = sender;
+            Delegate1 = sender1;
             
         }
 
@@ -118,6 +120,7 @@ namespace Rabbit__Game
         {
             if(Name == "Main")
             {
+                Delegate1();
                 this.Close();
             }
             else
